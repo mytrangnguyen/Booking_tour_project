@@ -1,0 +1,13 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class slide extends Model
+{
+     protected $table = 'slides' ;
+   	protected $fillabel = ['id','image','description'];
+   	public $timestamps = true;
+  	
+}

@@ -8,7 +8,7 @@ class journey extends Model
 {
    protected $table = 'journeys' ;
    protected $fillabel = ['id_journey','days','id_place','id_tour'];
-   public $timestamps = true;
+   public $timestamps = false;
    public function hotels()
    {
    	return $this->hasMany('App\journeys','id_hotel','id_hotel');

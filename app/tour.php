@@ -8,6 +8,7 @@ class tour extends Model
 {
    protected $table = 'tours'; // Tên của bảng trong database
    protected $fillable = ['price_tour','price_promotion','start_date','end_date','start_place','id_vehicles','quantity_people','status'];
+   public $timestamps = false;
 
    public function restaurants() {
    	return $this->hasMany('App\tour','id_res','id_res');

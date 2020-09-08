@@ -13,9 +13,9 @@ class slideSeeder extends Seeder
     public function run()
     {
         DB::table('slides')->insert([
-            ['image' => 'sl1.jpg','description' => 'Hay den voi chung toi de co nhung trai nghiem tuyet voi nhat'],
-            ['image' => 'sl2.jpg','description' => 'Hay den voi chung toi de co nhung trai nghiem tuyet voi nhatHay den voi chung toi de co nhung trai nghiem tuyet voi nhat'],
-            ['image' => 'sl3.jpg','description' => 'Hay den voi chung toi de co nhung trai nghiem tuyet voi nhat']
+            ['images' => 'sl1.jpg','details' => 'Hay den voi chung toi de co nhung trai nghiem tuyet voi nhat'],
+            ['images' => 'sl2.jpg','details' => 'Hay den voi chung toi de co nhung trai nghiem tuyet voi nhatHay den voi chung toi de co nhung trai nghiem tuyet voi nhat'],
+            ['images' => 'sl3.jpg','details' => 'Hay den voi chung toi de co nhung trai nghiem tuyet voi nhat']
             
         ]);
     }

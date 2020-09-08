@@ -1,6 +1,11 @@
 @extends('master')  <!-- kế thừa -->
 @section('content')  <!-- gọi lại phần đã cắt --> 
   <body>
+    <style type="text/css">
+      .text-primary mb-2 d-block {
+        text-decoration: line-through;
+      }
+    </style>
   
   <div class="site-wrap">
 
@@ -14,19 +19,19 @@
     </div>
     
     <div class="slide-one-item home-slider owl-carousel">
+      @foreach($Slide as $sl)
+      <div class="site-blocks-cover overlay" style="background-image: url(public/source/images/{{$sl->images}});" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
 
-      @foreach($slide as $sl)
-     <div class="site-blocks-cover overlay" style="background-image: url(/Booking_tour/public/source/images/{{$sl->image}});" data-aos="fade" data-stellar-background-ratio="0.5">
-       <div class="container">
-         <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+              <h1 class="text-white font-weight-light">{!! $sl["name"] !!}</h1>
+            </div>
+          </div>
+        </div>
+      </div>  
+      @endforeach
 
-           <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-             <p class="mb-5">{{$sl->description}}</p>
-           </div>
-         </div>
-       </div>
-     </div>
-     @endforeach  
     </div>
 
 
@@ -34,112 +39,57 @@
       
       <div class="container overlap-section">
         <div class="row">
+            @foreach($tour1 as $tour1)
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
             <a href="#" class="unit-1 text-center">
-              <img src="public/source/images/1.jpg" alt="Image" height="350px" width="350px">
+              <img style="width: 500px;height: 250px"  src="public/source/images/{{$tour1->image_tour}}" alt="Vì em mù đường nên chẳng hiển thị mô anh nợ" class="img-fluid">
               <div class="unit-1-text">
-                <h3 class="unit-1-heading">Khám phá Việt Nam</h3>
+                <h3 class="unit-1-heading">{!! $tour1->name_tour !!}</h3>
               </div>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <a href="#" class="unit-1 text-center">
-              <img src="public/source/images/2.jpg" alt="Image" height="350px" width="350px">
-              <div class="unit-1-text">
-                <h3 class="unit-1-heading">Đi khám muôn nơi</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <a href="#" class="unit-1 text-center">
-              <img src="public/source/images/3.jpg" alt="Image" height="350px" width="350px">
-              <div class="unit-1-text">
-                <h3 class="unit-1-heading">Tiết kiệm</h3>
-              </div>
-            </a>
-          </div>
+           @endforeach
+          
         </div>
       </div>
     
     </div>
-
-
-    
-
-
     <div class="site-section">
       
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
-            <h2 class="font-weight-light text-black">Go with us</h2>
-            
+            <h2 class="font-weight-light text-black"><CENTER>CÁC TOUR HÔM NAY</CENTER></h2>
+            <p class="color-black-opacity-5">Chọn điểm đến tiếp theo của bạn</p>
           </div>
         </div>
         <div class="row">
+          @foreach($tour as $tour)
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="#" class="unit-1 text-center">
-              <img src="/Booking_tour/public/source/images/1.jpg" alt="Image"  height="250px">
+           
+            <a href="{{route('detail',$tour->id)}}" class="unit-1 text-center">
+              <img src="public/source/images/{{$tour->image_tour}}" style="width: 500px;height: 250px"  alt="Vì em mù đường nên chẳng hiển thị mô anh nợ" class="img-fluid">
+              
               <div class="unit-1-text">
-                <strong class="text-primary mb-2 d-block">$590</strong>
-                <h3 class="unit-1-heading">Đà Lạt</h3>
+                @if($tour->price_promotion==0)
+                <strong class="text-primary mb-2 d-block">{!! $tour->price_tour !!}$</strong>
+                @else
+                <strong class="text-primary mb-2 d-block" style="text-decoration: line-through;">{!! $tour->price_tour !!}$</strong>
+                <strong class="text-primary mb-2 d-block">{!! $price_promo = $tour->price_tour - ($tour->price_tour / 100 * $tour->price_promotion) !!}$</strong>
+                @endif
+                <h3 class="unit-1-heading">{{ $tour->name_tour}}</h3>
+                
               </div>
             </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="#" class="unit-1 text-center">
-              <img src="/Booking_tour/public/source/images/2.jpg" alt="Image"  height="250px">
-              <div class="unit-1-text">
-                <strong class="text-primary mb-2 d-block">$390</strong>
-                <h3 class="unit-1-heading">Đà Năng</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="#" class="unit-1 text-center">
-              <img src="/Booking_tour/public/source/images/3.jpg" alt="Image"  height="250px">
-              <div class="unit-1-text">
-                <strong class="text-primary mb-2 d-block">$390</strong>
-                <h3 class="unit-1-heading">Nha Trang</h3>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="#" class="unit-1 text-center">
-              <img src="/Booking_tour/public/source/images/4.jpg" alt="Image"  height="250px">
-              <div class="unit-1-text">
-                <strong class="text-primary mb-2 d-block">$320</strong>
-                <h3 class="unit-1-heading">Phú QUốc</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="#" class="unit-1 text-center">
-              <img src="/Booking_tour/public/source/images/5.jpg" alt="Image"  height="250px">
-              <div class="unit-1-text">
-                <strong class="text-primary mb-2 d-block">$290</strong>
-                <h3 class="unit-1-heading">Lý Sơn</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <a href="#" class="unit-1 text-center">
-              <img src="/Booking_tour/public/source/images/6.jpg" alt="Image"  height="250px">
-              <div class="unit-1-text">
-                <strong class="text-primary mb-2 d-block">$390</strong>
-                <h3 class="unit-1-heading">Hồ Chí Minh</h3>
-              </div>
-            </a>
-          </div>
+           
+          </div> @endforeach
         </div>
       </div>
     
     </div>
+    
 
-    <!-- <div class="site-section bg-light">
-      
-    </div> -->
+    
     
     
   </div>

@@ -16,14 +16,13 @@
                 <li class="has-children">
                   <a href="#">Điểm đến</a>
                   <ul class="dropdown">
-                    <li><a href="#">Đà Năng</a></li>
-                    <li><a href="#">Nha Trang</a></li>
-                    <li><a href="#">Hà Nội</a></li>
-                    <li><a href="#">Phú Quốc</a></li>
+                    @foreach($name_city as $city)
+                       <li><a href="{{route('diemden',$city->id_city )}}">{{$city['name_city']}}</a></li>
+                    @endforeach 
                   </ul>
                 </li>
                 
-                <li><a href="#">Khuyến mãi</a></li>
+                <li><a href="{{route('khuyenmai1')}}">Khuyến mãi</a></li>
                 <li><a href="{{route('gioithieu')}}">Giới thiệu</a></li>
                 <li><a href="#">Blog</a></li>
                 
@@ -36,22 +35,18 @@
           <div class="col-6 col-xl-2 text-right">
             <div class="d-none d-xl-inline-block">
               <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li>
-                  <a href="#" class="pl-0 pr-3 text-black"><span class="icon-tripadvisor"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
-                </li>
-                
+                @if(Session::has('user'))
+                       <li><a href="">{{Session::get('user.user_name')}}</a></li>
+                       &nbsp;
+                        <li><a href="{{route('logout1')}}">Đăng xuất</a></li>
+                 @else
+                    <li><a href="{{route('register')}}">Đăng kí</a></li>
+                      &nbsp;
+                      &nbsp;
+                    <li><a href="{{route('login')}}" onclick="">Đăng nhập</a></li>
+                 @endif
               </ul>
-            </div>
-
+            </div>  
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
           </div>
@@ -61,3 +56,4 @@
       
     </header>
 
+ 

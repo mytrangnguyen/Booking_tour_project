@@ -12,18 +12,8 @@ class tourSeeder extends Seeder
     public function run()
     {
          DB::table('tours')->insert([
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
+            ['price_tour' => '1200000','price_promotion' => '5','start_place' => '29/5/2019','end_date' => '3/6/2019','negotiated_price' => '0','start_place' => 'Da Nang','id_vehicles'=>'2','quantity_people'=>'30'],
             
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
-            
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
-            
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
-            
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan'],
-            ['price_tour' => 'Tour ghep doan','price_promotion' => 'Ghep Doan','price_promotion' => 'Ghep Doan','negotiated_price' => 'Ghep Doan','start_date' => 'Ghep Doan','end_date' => 'Ghep Doan','start_place' => 'Ghep Doan','id_type_tour' => 'Ghep Doan']
             
         ]);
     }

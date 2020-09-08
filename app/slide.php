@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class slide extends Model
 {
      protected $table = 'slides' ;
-   	protected $fillabel = ['id','image','description'];
-   	public $timestamps = true;
+   	protected $fillabel = ['id_slide','images','details'];
+   	
   	
 }
